@@ -1,31 +1,37 @@
+import { Link } from 'react-router-dom';
 import '../App.css';
 
-function SigIn() {
+function SignIn() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <span className="box">
       <h3>SigIn</h3>
       <div className="row">
-        <form className="col s12">
+        <form className="col s12" onSubmit={handleSubmit}>
           <div className="row">
             <div className="input-field col s6">
               <input id="email" type="email" className="validate" />
-              <label for="email">e-mail:</label>
+              <label htmlFor="email">e-mail:</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s6">
               <input id="password" type="password" className="validate" />
-              <label for="password">password:</label>
+              <label htmlFor="password">password:</label>
             </div>
           </div>
           <div className="row">
-            <a
-              href="/SignUp"
+            <Link
+              to="/SignUp"
               className="waves-effect waves-light btn"
               style={{ margin: '15px' }}
             >
               Criar conta
-            </a>
+            </Link>
+
             <a
               href="/"
               className="waves-effect waves-light btn"
@@ -40,4 +46,4 @@ function SigIn() {
   );
 }
 
-export default SigIn;
+export default SignIn;

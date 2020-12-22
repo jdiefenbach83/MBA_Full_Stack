@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Products from './components/Products';
-import SigIn from './components/SigIn';
+import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 
 function Routes({ list, include }) {
@@ -19,7 +19,7 @@ function Routes({ list, include }) {
         <Route path="/products">
           <Products list={list} />
         </Route>
-        <Route path="/sigin" component={SigIn} />
+        <Route path="/signin" component={SignIn} />
         <Route path="/signup">
           <SignUp list={list} include={handleInclude} />
         </Route>

@@ -6,8 +6,8 @@ function Products({ list }) {
   return (
     <span className="box">
       <h3>List names</h3>
-      {list.map((user) => (
-        <li>
+      {list.map((user, index) => (
+        <li key={index}>
           name: {user.name}, email: {user.email}
         </li>
       ))}

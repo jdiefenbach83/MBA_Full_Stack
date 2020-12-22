@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import M from 'materialize-css';
 
 function SignUp({ list, include }) {
@@ -8,7 +10,11 @@ function SignUp({ list, include }) {
   const [password, setPassword] = useState('');
   const [cPassword, setcPassword] = useState('');
 
+  let history = useHistory();
+
   const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (email !== cEmail) {
       M.toast({
         html: 'Email informados não correspondem...',
@@ -25,6 +31,7 @@ function SignUp({ list, include }) {
     } else {
       const newUser = { name, email, password };
       include(newUser);
+      history.push('/signin');
     }
     //M.Toast.dismissAll();
   };
@@ -42,7 +49,7 @@ function SignUp({ list, include }) {
                 className="validate"
                 onChange={(e) => setName(e.target.value)}
               />
-              <label for="name">name:</label>
+              <label htmlFor="name">name:</label>
             </div>
           </div>
           <div className="row">
@@ -53,7 +60,7 @@ function SignUp({ list, include }) {
                 className="validate"
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <label for="email">e-mail:</label>
+              <label htmlFor="email">e-mail:</label>
             </div>
           </div>
           <div className="row">
@@ -64,7 +71,7 @@ function SignUp({ list, include }) {
                 className="validate"
                 onChange={(e) => setCEmail(e.target.value)}
               />
-              <label for="cEmail">confirm e-mail:</label>
+              <label htmlFor="cEmail">confirm e-mail:</label>
             </div>
           </div>
           <div className="row">
@@ -75,7 +82,7 @@ function SignUp({ list, include }) {
                 className="validate"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <label for="password">password:</label>
+              <label htmlFor="password">password:</label>
             </div>
           </div>
           <div className="row">
@@ -86,7 +93,7 @@ function SignUp({ list, include }) {
                 className="validate"
                 onChange={(e) => setcPassword(e.target.value)}
               />
-              <label for="cPassword">confirm password:</label>
+              <label htmlFor="cPassword">confirm password:</label>
             </div>
           </div>
           <div className="row">
